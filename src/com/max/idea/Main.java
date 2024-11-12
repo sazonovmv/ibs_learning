@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Random rand = new Random();
         double maxValue = rand.nextDouble();
-        int minValue = Integer.MIN_VALUE;
+        byte minValue = Byte.MIN_VALUE;
         System.out.println(maxValue);
         System.out.println(minValue);
     }
