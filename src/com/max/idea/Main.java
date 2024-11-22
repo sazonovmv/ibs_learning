@@ -3,19 +3,21 @@ import java.util.Random;
 public class Main {
     public static void main(String[] args) {
 
-        int arrayLenght = 5;
-        int [] array = new int[arrayLenght];
-        array = rndArray(arrayLenght);
-        prntArray(array);
+
+
+        int [] array = rndArray(new int[5]);
+        printArray(array);
         System.out.println(" - Это массив");
-        elmSwap(array);
-        prntArray(array);
+        Swap(array);
+        printArray(array);
         System.out.println(" - Это массив после смены местами первого и последнего элемента");
-        System.out.println(array[0]+ " + "+ array[2]+ " = " + (array[0]+array[2]));
+        prntSum(array);
+        System.out.print(" - Это сумма чисел 1 и 3 элемента массива");
+
     }
-    public static int [] rndArray(int arrayLenght)
+    public static int [] rndArray(int [] array)
     {
-        int [] array = new int[arrayLenght];
+
         Random rand = new Random();
         for (int i=0;i<array.length;i++)
         {
@@ -23,21 +25,26 @@ public class Main {
         }
              return array;
     }
-    public static void prntArray(int [] array)
+    public static void printArray(int [] array)
     {
-        for (int i=0;i<array.length;i++)
-        {
-            System.out.print(array[i]+" ");
+        for (int i : array) {
+            System.out.print(i + " ");
         }
 
     }
 
-    public static int [] elmSwap(int [] arrayToSwap)
+    public static void Swap(int [] arrayToSwap)
     {
         int elmSwap = arrayToSwap[0];
-        arrayToSwap[0] = arrayToSwap[4];
-        arrayToSwap[4] = elmSwap;
-        return arrayToSwap;
+        arrayToSwap[0] = arrayToSwap[arrayToSwap.length-1];
+        arrayToSwap[arrayToSwap.length-1] = elmSwap;
+    }
+
+
+    public static void prntSum(int [] arrayToSum)
+    {
+        int sum = arrayToSum[0]+arrayToSum[arrayToSum.length/2];
+        System.out.print(arrayToSum[0] + "+" + arrayToSum[arrayToSum.length/2] + "=" + sum);
     }
 
 }
