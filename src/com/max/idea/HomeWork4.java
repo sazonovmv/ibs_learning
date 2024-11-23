@@ -82,7 +82,7 @@ public class HomeWork4 {
                 System.out.println("Введенный символ не является математическим оператором");
         }
     }
-    static public void convert(byte ChooseOne, byte ChooseTwo, double value)
+    public static void convert(byte ChooseOne, byte ChooseTwo, double value)
     {
         double conValue1, conValue2, conValue3;
         String nameValeDist1 = "Метры: ";
