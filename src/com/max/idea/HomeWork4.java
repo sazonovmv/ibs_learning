@@ -10,7 +10,7 @@ public class HomeWork4 {
     int x = getValidInput(scanner,"Введите кол-во строк");
     int y = getValidInput(scanner,"Введите кол-во столбцов");
     int [][] newMatrix = inputValueMatrix(new int[x][y],scanner);
-    prntMatrix(newMatrix); //Проверка матрицы
+    prntMatrix(newMatrix); //Проверка правильности матрицы матрицы
     prntFirstLine(newMatrix);
 
     }
