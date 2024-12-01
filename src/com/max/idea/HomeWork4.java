@@ -5,55 +5,58 @@ import java.util.Scanner;
 
 public class HomeWork4 {
     public static void main(String[] args) {
-    int [][] newMatrix = newMatrix();
-    prntMatrix(newMatrix);
+
+    Scanner scanner = new Scanner(System.in);
+    int x = getValidInput(scanner,"Введите кол-во строк");
+    int y = getValidInput(scanner,"Введите кол-во столбцов");
+    int [][] newMatrix = inputValueMatrix(new int[x][y],scanner);
+    prntMatrix(newMatrix); //Проверка матрицы
     prntFirstLine(newMatrix);
 
     }
 
-    public static int [][] newMatrix() {
-        Scanner scanner = new Scanner(System.in);
-        while (true) {
-            System.out.println("Введите количество столбцов");
-           int x = scanner.nextInt();
-            if (x > 0) {
-                while (true) {
-                    System.out.println("Введите количество строк");
-                    int y = scanner.nextInt();
-                    if (y > 0) {
-                        int[][] matrix = new int[x][y];
-                        for (int i = 0; i <= matrix.length - 1; i++) {
-                            for (int j = 0; j <= matrix[i].length - 1; j++) {
-                                System.out.println("Введите элемент матрицы: " + (i + 1) + " строка " + (j + 1) + " cтолбец");
-                                matrix[i][j] = scanner.nextInt();
-                            }
-                        }
-                        return matrix;
+    public static int [][] inputValueMatrix(int [][] matrix,Scanner scanner) {
 
-
-                    } else System.out.println("Введите корректное число");
-                }
-            } else System.out.println("Введите корректное число");
+        for (int i = 0; i < matrix.length; i++){
+            for(int j=0; j < matrix[i].length; j++){
+                System.out.println("Введите элемент матрицы: " + (i + 1) + " строка " + (j + 1) + " cтолбец");
+                matrix[i][j] = scanner.nextInt();
+            }
         }
-
+        return matrix;
     }
+
 
     public static void prntMatrix(int[][] matrix) {
         System.out.println("Ваш матрица");
-        for (int[] x : matrix) {
-            for (int y : x) {
-                System.out.print(y + " | ");
+        for (int i = 0; i < matrix.length; i++){
+            for(int j=0; j < matrix[i].length; j++){
+
+                System.out.printf(matrix[i][j] + " | ");
             }
-            System.out.println(); // переход на новую строку после каждой строки массива }
+            System.out.println();
         }
     }
     public static void prntFirstLine(int [][] matrix)
     {
         System.out.println("Первая строка матрицы, где каждый элемент умножен на 3");
         int i=0;
-        for (int j=0; j<= matrix.length-1;j++)
+        for (int j=0; j< matrix[i].length;j++)
         {
             System.out.print((matrix[i][j]*3) + " ");
         }
+    }
+    public static int getValidInput(Scanner scanner, String text) {
+        int number;
+        while (true) {
+            System.out.println(text);
+            number = scanner.nextInt();
+            if (number > 0) {
+                break;
+            } else {
+                System.out.println("Введите корректное число");
+            }
+        }
+        return number;
     }
 }
