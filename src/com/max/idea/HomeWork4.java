@@ -6,57 +6,70 @@ import java.util.Scanner;
 public class HomeWork4 {
     public static void main(String[] args) {
 
-    Scanner scanner = new Scanner(System.in);
-    int x = getValidInput(scanner,"Введите кол-во строк");
-    int y = getValidInput(scanner,"Введите кол-во столбцов");
-    int [][] newMatrix = inputValueMatrix(new int[x][y],scanner);
-    prntMatrix(newMatrix); //Проверка правильности матрицы матрицы
-    prntFirstLine(newMatrix);
 
-    }
+        String boje1 = inputValue();
 
-    public static int [][] inputValueMatrix(int [][] matrix,Scanner scanner) {
-
-        for (int i = 0; i < matrix.length; i++){
-            for(int j=0; j < matrix[i].length; j++){
-                System.out.println("Введите элемент матрицы: " + (i + 1) + " строка " + (j + 1) + " cтолбец");
-                matrix[i][j] = scanner.nextInt();
-            }
-        }
-        return matrix;
+        prntSolution(boje1);
     }
 
 
-    public static void prntMatrix(int[][] matrix) {
-        System.out.println("Ваш матрица");
-        for (int i = 0; i < matrix.length; i++){
-            for(int j=0; j < matrix[i].length; j++){
 
-                System.out.printf(matrix[i][j] + " | ");
-            }
-            System.out.println();
-        }
-    }
-    public static void prntFirstLine(int [][] matrix)
-    {
-        System.out.println("Первая строка матрицы, где каждый элемент умножен на 3");
-        int i=0;
-        for (int j=0; j< matrix[i].length;j++)
-        {
-            System.out.print((matrix[i][j]*3) + " ");
-        }
-    }
-    public static int getValidInput(Scanner scanner, String text) {
-        int number;
+    public static String inputValue() {
+        Scanner scanner = new Scanner(System.in);
+
+
         while (true) {
-            System.out.println(text);
-            number = scanner.nextInt();
-            if (number > 0) {
-                break;
-            } else {
-                System.out.println("Введите корректное число");
+            System.out.println("Введите уравнение");
+            String equation = scanner.nextLine();
+             equation = equation.toLowerCase();
+            char[] chrArray = equation.toCharArray();
+            if (((equation.indexOf('+') == 1 | equation.indexOf('-') == 1)) && (equation.indexOf('=') == 3) && (((Character.isDigit(chrArray[0]) == true) & (Character.isDigit(chrArray[4]) == true)) || ((Character.isDigit(chrArray[0]) == true) & (Character.isDigit(chrArray[2]) == true)) || ((Character.isDigit(chrArray[2]) == true) & (Character.isDigit(chrArray[4]) == true))) && (equation.indexOf('x') == 0 || equation.indexOf('x') == 2 || equation.indexOf('x') == 4)) {
+                return equation;
+            }
+            else
+            {
+                System.out.println("вы ввели: " + equation);
+                System.out.println("Введенное уравнение с поиском переменной X неверно или не доступно к решению, повторить снова");
             }
         }
-        return number;
+
+    }
+
+
+    public static void prntSolution(String eqation)
+    {
+        char[] chrArray = eqation.toCharArray();
+        int ax = eqation.indexOf('x');
+        int solution;
+        if (chrArray[1] == '+')
+        {
+            switch (ax)
+            {
+                case 0 :
+                   solution =  chrArray[4] - chrArray[2];
+                   break;
+                case 2 :
+                    solution =  chrArray[4] - chrArray[0];
+                    break;
+                default:
+                    solution =  chrArray[0] + chrArray[2];
+                    break;
+            }
+        }
+        else
+        {  switch (ax)
+        {
+            case 0 :
+                solution =  chrArray[4] + chrArray[2];
+                break;
+            case 2 :
+                solution =  chrArray[4] + chrArray[0];
+                break;
+            default:
+                solution =  chrArray[0] - chrArray[2];
+                break;
+        }
+        }
+        System.out.println(solution);
     }
 }
