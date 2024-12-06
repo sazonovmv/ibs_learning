@@ -32,6 +32,20 @@ public class HomeWork4 {
         for (int Array : array) {
             System.out.print("| " + Array);
         }
+        System.out.println();
+        if (Math.abs(max)>Math.abs(min))
+        {
+            System.out.println("Наибольшее число по модулю = " + Math.abs(max));
+        }
+        else if ((Math.abs(max)<Math.abs(min)))
+        {
+            System.out.println("Наибольшее число по модулю = " + Math.abs(min));
+        }
+        else if ((Math.abs(max)==Math.abs(min)))
+        {
+            System.out.println("Значения по модулю равны");
+        }
     }
+
 }
 
