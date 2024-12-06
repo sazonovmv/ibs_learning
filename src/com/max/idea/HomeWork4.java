@@ -1,19 +1,14 @@
 package com.max.idea;
 
 
+import java.util.Scanner;
 
 public class HomeWork4 {
     public static void main(String[] args) {
-        String simpleString = "I like Java!!!";
-
-        if (simpleString.contains("Java") && simpleString.startsWith("I like") && simpleString.endsWith("!!!"))
-        {
-            String newString =simpleString.toUpperCase();
-            System.out.println(newString);
-        }
-        int starts = simpleString.indexOf("Java");
-        simpleString = simpleString.replaceAll("a","o");
-        System.out.println(simpleString.substring(starts,starts+4));
-
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите строку");
+        String example = scanner.nextLine();
+        String [] result = example.split(" ");
+        System.out.println(result.length);
     }
 }
