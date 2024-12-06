@@ -1,27 +1,19 @@
 package com.max.idea;
 
-import java.util.Scanner;
+
 
 public class HomeWork4 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите первое число");
-        String firstNumber = scanner.nextLine();
-        System.out.println("Введите второе число");
-        int secondNumber = scanner.nextInt();
-        if (Integer.parseInt(firstNumber) > secondNumber)
-        {
-            System.out.println(Double.parseDouble(firstNumber));
+        String simpleString = "I like Java!!!";
 
-        }
-        else if (Integer.parseInt(firstNumber) < secondNumber)
+        if (simpleString.contains("Java") && simpleString.startsWith("I like") && simpleString.endsWith("!!!"))
         {
-            double newSecondNumber = (double) secondNumber;
-            System.out.println(newSecondNumber);
+            String newString =simpleString.toUpperCase();
+            System.out.println(newString);
         }
-        else if (Integer.parseInt(firstNumber) == secondNumber)
-        {
-            System.out.println("Числа равны");
-        }
+        int starts = simpleString.indexOf("Java");
+        simpleString = simpleString.replaceAll("a","o");
+        System.out.println(simpleString.substring(starts,starts+4));
+
     }
 }
