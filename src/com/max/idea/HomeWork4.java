@@ -5,12 +5,23 @@ import java.util.Scanner;
 public class HomeWork4 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите текущий курс: 1 USD to RUB");
-        Double usd = scanner.nextDouble();
-        System.out.println("Введите сумму рублей к переводу");
-        Double rubCount = scanner.nextDouble();
-        double sum = rubCount/usd;
-        sum = Math.ceil (sum * 100.0) / 100.0;
-        System.out.println(sum);
+        System.out.println("Введите первое число");
+        String firstNumber = scanner.nextLine();
+        System.out.println("Введите второе число");
+        int secondNumber = scanner.nextInt();
+        if (Integer.parseInt(firstNumber) > secondNumber)
+        {
+            System.out.println(Double.parseDouble(firstNumber));
+
+        }
+        else if (Integer.parseInt(firstNumber) < secondNumber)
+        {
+            double newSecondNumber = (double) secondNumber;
+            System.out.println(newSecondNumber);
+        }
+        else if (Integer.parseInt(firstNumber) == secondNumber)
+        {
+            System.out.println("Числа равны");
+        }
     }
 }
